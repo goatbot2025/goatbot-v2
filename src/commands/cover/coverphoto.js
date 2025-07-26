@@ -1,24 +1,25 @@
 module.exports = {
   config: {
-    name: "fbcover",
+    name: "coverphoto",
     aliases: [],
     version: "1.0",
     author: "Newton",
     countDown: 5,
     role: 0,
-    shortDescription: "Generate a Facebook-style cover",
-    longDescription: "Creates a Facebook cover using user-provided text or templates",
+    shortDescription: "Send a cover photo",
+    longDescription: "Sends a sample or random cover photo",
     category: "cover",
     guide: {
-      en: "{pn} <text>"
+      en: "{pn}"
     }
   },
 
-  onStart: async function ({ args, message }) {
-    const text = args.join(" ");
-    if (!text) return message.reply("Please provide text for the cover.");
-
-    message.reply(`🖼️ Generating Facebook cover with: ${text}`);
-    // Placeholder logic
+  onStart: async function ({ message }) {
+    // Placeholder image URL
+    const imageUrl = "https://files.catbox.moe/072wxr.png";
+    message.reply({
+      body: "Here's your cover photo 📷",
+      attachment: await global.utils.getStreamFromURL(imageUrl)
+    });
   }
 };
