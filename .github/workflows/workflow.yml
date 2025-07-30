@@ -1,1 +1,31 @@
 
+name: GoatBot Messenger Bot Auto Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *' # প্রতি 6 ঘণ্টা পর পর চালাবে
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start GoatBot Messenger Bot
+        run: node index.js
+        env:
+          FBSTATE: ${{ secrets.FBSTATE }}
+          API_KEY: ${{ secrets.API_KEY }}
+          SPOTIFY_KEY: ${{ secrets.SPOTIFY_KEY }}
+          LYRICS_API: ${{ secrets.LYRICS_API }}
