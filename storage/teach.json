@@ -1,0 +1,14 @@
+const fs = require("fs");
+const path = require("path");
+const file = path.join(__dirname, "../../../storage/teach.json");
+module.exports = {
+  config: { name: "teach", version: "1.0", author: "newton", role: 0, shortDescription: "Teach replies", category: "tools", guide: "{pn} <trigger> | <reply>" },
+  onStart: async function({ args, message }) {
+    const [trigger, reply] = message.body.replace(/^\*\w+\s+/,"").split("|").map(s=>s.trim());
+    if (!trigger || !reply) return message.reply("⚠️ Format: *teach trigger | reply");
+    let data = JSON.parse(fs.readFileSync(file, "utf‑8") || "{}");
+    data[trigger.toLowerCase()] = reply;
+    fs.writeFileSync(file, JSON.stringify(data, null, 2));
+    message.reply(`✅ Trained: "${trigger}" → "${reply}"`);
+  }
+};
