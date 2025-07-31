@@ -1,1 +1,7 @@
+const welcomeImage = path.join(__dirname, "../../assets/welcome.jpg");
 
+// Inside join event:
+message.reply({
+  body: "👋 Welcome to the group!",
+  attachment: fs.createReadStream(welcomeImage)
+});
