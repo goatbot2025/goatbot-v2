@@ -1,42 +1,30 @@
+const { getStreamFromURL } = require("../utils/botAPI");
 const fs = require("fs");
-const path = require("path");
-const axios = require("axios");
+
+const hourlyMessages = JSON.parse(fs.readFileSync("storage/hourlymessage.json", "utf-8"));
 
 module.exports = {
   config: {
-    name: "message",
-    eventType: ["message"],
+    name: "hourlymessage",
+    interval: 3600000, // 1 hour
   },
 
-  async run({ message, event, threadsData }) {
-    const body = event.body?.toLowerCase();
-    if (!body) return;
+  async onRun({ api }) {
+    const currentHour = new Date().getHours().toString();
+    const msgData = hourlyMessages[currentHour];
 
-    // Prefix keyword detect
-    if (body.includes("prefix")) {
-      return message.reply({
-        body: "🔥 Prefix info:",
-        attachment: await getStreamFromURL("https://files.catbox.moe/etxmzw.png")
-      });
-    }
+    if (!msgData || !msgData.text) return;
 
-    // Newton keyword detect
-    if (body.includes("newton")) {
-      return message.reply({
-        body: "🎬 Newton is here!",
-        attachment: await getStreamFromURL("https://files.catbox.moe/m451ok.mp4")
-      });
+    const allThreads = global.GoatBot.autoMessageThreads || [];
+    for (const threadID of allThreads) {
+      try {
+        await api.sendMessage({
+          body: msgData.text,
+          attachment: await getStreamFromURL("https://files.catbox.moe/etxmzw.png") // prefix image
+        }, threadID);
+      } catch (err) {
+        console.error(`❌ hourlymessage error in ${threadID}:`, err);
+      }
     }
   }
 };
-
-// Image/video stream fetcher
-async function getStreamFromURL(url) {
-  const res = await axios({
-    method: "GET",
-    url,
-    responseType: "stream"
-  });
-  return res.data;
-        }
-
