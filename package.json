@@ -1,1 +1,27 @@
-
+{
+  "name": "goatbot-userbot",
+  "version": "1.0.0",
+  "description": "Facebook Messenger UserBot powered by GoatBot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "goatbot",
+    "facebook",
+    "messenger",
+    "userbot",
+    "ai"
+  ],
+  "author": "newton",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
+    "form-data": "^4.0.0",
+    "moment-timezone": "^0.5.43",
+    "node-fetch": "^2.6.12"
+  }
+}
