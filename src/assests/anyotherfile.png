@@ -1,1 +1,2 @@
-
+const img = path.join(__dirname, "../../assets/anyotherfile.png");
+message.reply({ body: "Here's your file:", attachment: fs.createReadStream(img) });
