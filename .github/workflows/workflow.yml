@@ -27,17 +27,18 @@ jobs:
           FBSTATE: ${{ secrets.FBSTATE }}
           API_KEY: ${{ secrets.API_KEY }}
           SPOTIFY_KEY: ${{ secrets.SPOTIFY_KEY }}
-          LYRICS_API: ${{ secrets.LYRICS_API }}OPENAI_API : ${{ secrets. OPENAI_API }}
-	 YOUTUBE_API : ${{ secrets. YOUTUBE_API }}
- 	 UPSCALE_API : ${{ secrets.UPSCALE_API }}
-	 ELEVENLABS_API : ${{ secrets.ELEVENLABS_API }}
-	 ASSEMBLY_API : ${{ secrets. ASSEMBLY_API }}
-	 VOICERSS_API : ${{ secrets.VOICERSS_API }}
-	 NEKOBOT_API : ${{ secrets.NEKOBOT_API }}
-	 GOOGLETTS_API : ${{ secrets.GOOGLETTS_API }}
-	 BING_SEARCH_API : ${{ secrets.BING_SEARCH_API }}
-	 ANIMEVOICE_API : ${{ secrets.ANIMEVOICE_API }}
-	 GENIUS_API : ${{ secrets.GENIUS_API }}
-	 DEEPAI_API : ${{ secrets.DEEPAI_API }}
- 	 REMOVEBG_API : ${{ secrets.REMOVEBG_API }}
-	 TTSMP3_API : ${{ secrets.TTSMP3_API }}
+          LYRICS_API: ${{ secrets.LYRICS_API }}
+	  OPENAI_API : ${{ secrets. OPENAI_API }}
+	  YOUTUBE_API : ${{ secrets. YOUTUBE_API }}
+ 	  UPSCALE_API : ${{ secrets.UPSCALE_API }}
+	  ELEVENLABS_API : ${{ secrets.ELEVENLABS_API }}
+	  ASSEMBLY_API : ${{ secrets. ASSEMBLY_API }}
+	  VOICERSS_API : ${{ secrets.VOICERSS_API }}
+	  NEKOBOT_API : ${{ secrets.NEKOBOT_API }}
+	  GOOGLETTS_API : ${{ secrets.GOOGLETTS_API }}
+	  BING_SEARCH_API : ${{ secrets.BING_SEARCH_API }}
+	  ANIMEVOICE_API : ${{ secrets.ANIMEVOICE_API }}
+	  GENIUS_API : ${{ secrets.GENIUS_API }}
+	  DEEPAI_API : ${{ secrets.DEEPAI_API }}
+ 	  REMOVEBG_API : ${{ secrets.REMOVEBG_API }}
+	  TTSMP3_API : ${{ secrets.TTSMP3_API }}
