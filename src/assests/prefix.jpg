@@ -1,1 +1,6 @@
+const path = require("path");
 
+if (event.body?.toLowerCase().includes("prefix")) {
+  const imgPath = path.join(__dirname, "../../assets/prefix.jpg");
+  return message.reply({ attachment: fs.createReadStream(imgPath) });
+}
