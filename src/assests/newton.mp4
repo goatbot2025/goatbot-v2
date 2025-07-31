@@ -1,1 +1,5 @@
+const videoPath = path.join(__dirname, "../../assets/newton.mp4");
 
+if (event.body?.toLowerCase().includes("newton")) {
+  return message.reply({ attachment: fs.createReadStream(videoPath) });
+}
